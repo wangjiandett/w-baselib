@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/samples_fragment">
+
+    <fragment
+        android:id="@+id/samples_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.SamplesFragment"
+        tools:layout="@layout/tt_fragment_samples">
+
+        <action
+            android:id="@+id/action_2_camera"
+            app:destination="@+id/camera_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_share"
+            app:destination="@+id/share_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_side"
+            app:destination="@+id/side_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_room"
+            app:destination="@+id/room_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_dispathcer"
+            app:destination="@+id/dispathcer_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_views"
+            app:destination="@+id/views_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_swipe"
+            app:destination="@+id/swipe_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_checkable"
+            app:destination="@+id/checkable_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_crop"
+            app:destination="@+id/crop_activity"
+            />
+
+        <action
+            android:id="@+id/action_2_scan"
+            app:destination="@+id/scan_activity"
+            />
+
+        <action
+            android:id="@+id/action_2_h5"
+            app:destination="@+id/h5_activity"
+            />
+
+        <action
+            android:id="@+id/action_2_pickerview"
+            app:destination="@+id/pickerview_activity"
+            />
+
+        <action
+            android:id="@+id/action_2_recycler"
+            app:destination="@+id/recycler_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_recycler_refresh"
+            app:destination="@+id/recycler_refresh_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_view_pager"
+            app:destination="@+id/view_pager_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_view_flipper"
+            app:destination="@+id/view_flipper_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_upload"
+            app:destination="@+id/view_upload_fragment"
+            />
+
+        <action
+            android:id="@+id/action_2_messenger"
+            app:destination="@+id/messenger_fragment"
+            />
+
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/camera_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.ShotScreenFragment"
+        tools:layout="@layout/tt_fragment_camera"/>
+
+    <fragment
+        android:id="@+id/share_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.ShareFragment"
+        tools:layout="@layout/tt_fragment_share"/>
+
+    <fragment
+        android:id="@+id/side_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.SideBarFragment"
+        tools:layout="@layout/tt_fragment_side"/>
+
+    <fragment
+        android:id="@+id/room_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.RoomFragment"
+        tools:layout="@layout/tt_fragment_room"/>
+
+    <fragment
+        android:id="@+id/dispathcer_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.DispatcherFragment"
+        tools:layout="@layout/tt_fragment_dispatcher"/>
+
+    <fragment
+        android:id="@+id/views_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.ViewsFragment"
+        tools:layout="@layout/tt_fragment_views"/>
+
+    <fragment
+        android:id="@+id/swipe_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.SwipeRefreshFragment"
+        tools:layout="@layout/tt_fragment_swipe_refresh"/>
+
+    <fragment
+        android:id="@+id/checkable_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.CheckAbleFragment"
+        tools:layout="@layout/tt_fragment_checkable"/>
+
+    <fragment
+        android:id="@+id/recycler_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.recycler.RecyclerViewManagerFragment"
+        tools:layout="@layout/tt_fragment_recycler"/>
+
+    <fragment
+        android:id="@+id/recycler_refresh_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.recycler.RefreshRecyclerFragment"
+        tools:layout="@layout/tt_fragment_recycler"/>
+
+    <fragment
+        android:id="@+id/view_pager_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.ViewPagerFragment"
+        tools:layout="@layout/tt_fragment_view_pager"/>
+
+    <fragment
+        android:id="@+id/view_flipper_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.ViewFlipperFragment"
+        tools:layout="@layout/tt_fragment_view_flipper"/>
+
+    <fragment
+        android:id="@+id/view_upload_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.UploadFragment"
+        tools:layout="@layout/tt_fragment_upload"/>
+
+    <fragment
+        android:id="@+id/messenger_fragment"
+        android:name="com.moa.rxdemo.mvp.view.demons.MessengerFragment"
+        tools:layout="@layout/tt_fragment_messenger"/>
+
+    <activity
+        android:id="@+id/crop_activity"
+        android:name="com.moa.rxdemo.mvp.view.demons.CropImageActivity"
+        />
+
+    <activity
+        android:id="@+id/scan_activity"
+        android:name="com.moa.rxdemo.mvp.view.demons.ScanActivity"
+        />
+
+    <activity
+        android:id="@+id/h5_activity"
+        android:name="com.moa.baselib.base.ui.H5Activity"
+        />
+
+    <activity
+        android:id="@+id/pickerview_activity"
+        android:name="com.moa.rxdemo.mvp.view.demons.pickerview.PickerActivity"
+        />
+
+</navigation>

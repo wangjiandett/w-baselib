@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/tt_list_item_selector">
+
+    <ImageView
+        android:id="@+id/iv_start_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/title_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/tv_sub_text"
+            style="@style/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:ellipsize="end"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_end_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:layout_marginStart="10dp"
+        android:src="@mipmap/arrow_right" />
+
+</LinearLayout>

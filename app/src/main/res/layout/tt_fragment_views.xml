@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <com.moa.baselib.view.round.RoundButton
+        android:id="@+id/btn_round_corner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/tt_color_61beff"
+        android:focusable="false"
+        android:radius="20dp"
+        android:text="椭圆按钮"
+        android:textAllCaps="false"
+        app:bordersColor="@color/black"
+        app:bordersWidth="5dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.moa.baselib.view.SwitchButton
+            android:id="@+id/btn_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_toogle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="toogle"
+            android:textAllCaps="false" />
+
+        <com.moa.baselib.view.CountDownTextView
+            android:id="@+id/tv_count_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="点击开始倒计时"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_show_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="show dialog"
+        android:textAllCaps="false" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_start_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="开启进度"
+            android:textAllCaps="false" />
+
+        <com.moa.baselib.view.CircleTextProgressbar
+            android:id="@+id/progressbar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:textColor="@color/black"
+            app:in_circle_color="@color/tt_colorAccent" />
+    </LinearLayout>
+
+</LinearLayout>

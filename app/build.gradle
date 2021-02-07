@@ -1,0 +1,191 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+static def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+        // Enabling multidex support 分包支持
+        multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()//room的数据库概要、记录
+                             , AROUTER_MODULE_NAME: project.getName()]// ARouter 使用的配置
+            }
+        }
+
+        ndk {
+            abiFilters "armeabi-v7a"// "armeabi", "arm64-v8a"
+        }
+    }
+
+    sourceSets {
+        //数据库概要、记录存放位置
+        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+    }
+
+    // signingConfigs必须放到buildTypes之前不然无法找到release和debug信息
+    signingConfigs {
+        debug {
+            storeFile file('sign/shygrading.jks')
+            storePassword 'shygrading'
+            keyAlias 'grading'
+            keyPassword 'shygrading'
+        }
+        release {
+            storeFile file('sign/shygrading.jks')
+            storePassword 'shygrading'
+            keyAlias 'grading'
+            keyPassword 'shygrading'
+        }
+    }
+
+    // 以下多维度支持
+    // https://developer.android.google.cn/studio/build/build-variants#flavor-dimensions
+    flavorDimensions("default")
+    // 以下多渠道支持
+    productFlavors {
+
+// 渠道名
+//        official {
+//        }
+    }
+
+    // 替换manifestPlaceholders
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false // minifyEnabled 混淆处理
+            shrinkResources false// shrinkResources 去除无用资源
+            signingConfig signingConfigs.release
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+            zipAlignEnabled true
+        }
+
+        applicationVariants.all { variant ->
+            variant.outputs.all { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    def fileName = "Grading_" +
+                            "${releaseTime()}_" +
+                            "${defaultConfig.versionName}_" +
+                            // "${variant.productFlavors[0].name}" + 渠道名
+                            ".apk"
+                    outputFileName = fileName
+                }
+            }
+        }
+    }
+
+    packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        doNotStrip "*/armeabi/libYTCommon.so"
+        doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        doNotStrip "*/x86/libYTCommon.so"
+        doNotStrip "*/arm64-v8a/libYTCommon.so"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    dexOptions {
+        jumboMode true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def dep = rootProject.ext.dependencies
+    def testDep = rootProject.ext.testDependencies
+
+    // test
+    testImplementation testDep["junit"]
+    androidTestImplementation testDep["test-runner"]
+    androidTestImplementation testDep["espresso-core"]
+
+    // kotlin
+    implementation dep["kotlin-stdlib-jdk7"]
+    // okhttp 调用build的时候日志有个warning提示
+    // 参考地址https://blog.csdn.net/irizhao/article/details/103643788
+    implementation dep["conscrypt-android"]
+
+//    'annotationProcessor' dependencies won't be recognized as kapt annotation processors
+//    room:compiler
+//    lifecycle:compiler
+//    arouter-compiler
+//    需要使用kapt
+
+    // room
+    implementation dep["room"]
+    kapt dep["room-compiler"]
+
+    // livedata support
+    // ViewModel and LiveData
+    implementation dep["lifecycle"]
+    kapt dep["lifecycle-compiler"]
+
+    // navigation
+    implementation dep["navigation-fragment"]
+    implementation dep["navigation-ui"]
+
+    implementation dep["eventbus"]
+
+    // 图片预览
+    implementation 'me.kareluo.intensify:image:1.1.0'
+
+    //ARouter compiler
+    kapt dep["arouter-compiler"]
+    //---------------------------------------------
+
+    // base lib
+    implementation project(':baselib')
+
+    if (isLibrary.toBoolean()) {
+        // module_a
+        implementation project(':module_a')
+    }
+}
+
+

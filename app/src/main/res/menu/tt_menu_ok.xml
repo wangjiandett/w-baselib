@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018.  For more infomation visit https://github.com/wangjiandett/RxDemo
+  ~
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 默认显示的是图片 -->
+    <!-- android:icon="@drawable/tt_ic_home_black_24dp"-->
+    <item
+        android:id="@+id/navigation_home"
+        app:showAsAction="always"
+        android:title="@string/home_tab_title_home"/>
+
+</menu>

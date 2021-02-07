@@ -1,0 +1,8 @@
+
+
+ // 生成keystore签名文件
+keytool -genkey -alias imxiaoqi -keypass imxiaoqi -keyalg RSA -keysize 1024 -validity 36500 -keystore C:\Users\JWZ\Desktop\fragment_demo.keystore -storepass imxiaoqi
+ // 生成jks签名文件
+keytool -genkey -alias grading -keypass shygrading -keyalg RSA -keysize 1024 -validity 36500 -keystore C:\Users\JWZ\Desktop\shygrading.jks -storepass shygrading
+// 查看签名文件信息
+keytool -list -v -keystore C:\Users\JWZ\Desktop\shygrading.jks

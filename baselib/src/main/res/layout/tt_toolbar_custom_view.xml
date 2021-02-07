@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tt_title_bar_height"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:visibility="visible"
+        android:gravity="center_vertical|start">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/tt_margin_12dp"
+            android:paddingRight="@dimen/tt_margin_12dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="@drawable/tt_toolbar_selector_back"
+            app:srcCompat="@drawable/tt_ic_arrow_back_black_24dp"/>
+
+        <View
+            android:id="@+id/v_divider"
+            android:layout_width="1px"
+            android:layout_height="24dp"
+            android:background="@color/title_divider"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLength="12"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/toolbar_text_color"
+        android:background="@drawable/tt_toolbar_selector_back"
+        android:textSize="@dimen/tt_title_bar_size"/>
+
+    <!--  最右侧的按钮，也可使用menu来实现，可参考主页右上角的按钮 -->
+
+   <LinearLayout
+       android:layout_width="0dp"
+       android:layout_height="46dp"
+       android:orientation="horizontal"
+       android:layout_weight="1"
+       android:paddingLeft="@dimen/tt_margin_12dp"
+       android:paddingRight="@dimen/tt_margin_12dp"
+       android:gravity="center_vertical|end">
+
+       <TextView
+           android:id="@+id/tv_right"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+           android:gravity="center"
+           android:maxLines="1"
+           android:visibility="gone"
+           android:ellipsize="end"
+           android:textColor="@color/toolbar_text_color"
+           android:textSize="@dimen/tt_title_bar_size"/>
+
+   </LinearLayout>
+
+</LinearLayout>

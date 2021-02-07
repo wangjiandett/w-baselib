@@ -1,0 +1,94 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="tt_BaseTheme">
+        <!--titlebar color-->
+        <item name="colorPrimary">@color/tt_colorPrimary</item>
+        <!--statebar color-->
+        <item name="colorPrimaryDark">@color/tt_colorPrimaryDark</item>
+        <!--默认的光标、选中的RadioButton颜色-->
+        <item name="colorAccent">@color/tt_colorAccent</item>
+        <!--<item name="android:fitsSystemWindows">true</item>-->
+        <item name="android:windowBackground">@color/white</item>
+
+    </style>
+
+    <!--toobar样式-->
+    <style name="AppTheme.AppBar" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textSize">@dimen/tt_title_bar_size</item>
+    </style>
+
+    <!--欢迎页面样式，防止图片拉伸-->
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/tt_splash</item>
+        <item name="android:windowFullscreen">true</item>
+    <!-- <item name="android:windowDisablePreview">true</item>-->
+    <!--    <item name="android:windowIsTranslucent">false</item>-->
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">false</item>
+    </style>
+
+    <style name="home_tab_normal_text">
+        <item name="android:textColor">@color/text_hint_color</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="home_tab_selected_text">
+        <item name="android:textColor">@color/tt_colorAccent</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/list_divider</item>
+    </style>
+
+    <style name="normal_text">
+        <item name="android:textColor">@color/normal_text_color</item>
+        <item name="android:textColorHint">@color/text_hint_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="normal_gray_text">
+        <item name="android:textColor">@color/color_888888</item>
+        <item name="android:textColorHint">@color/text_hint_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="normal_red_text">
+        <item name="android:textColor">@color/tt_colorAccent</item>
+        <item name="android:textColorHint">@color/text_hint_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="title_text">
+        <item name="android:textColor">@color/normal_text_color</item>
+        <item name="android:textColorHint">@color/text_hint_color</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="item_header_text">
+        <item name="android:textColor">@color/color_888888</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="item_sub_text">
+        <item name="android:textColor">@color/normal_text_color</item>
+        <item name="android:textColorHint">@color/text_hint_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="race_tab_item_style">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/tab_text_color_selector</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:drawableBottom">@drawable/top_tab_selector</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:button">@null</item>
+        <!--<item name="android:textStyle">bold</item>-->
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+</resources>

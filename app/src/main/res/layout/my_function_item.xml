@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.moa.baselib.view.cardview.LinearCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:minWidth="106dp"
+    android:minHeight="106dp"
+    android:orientation="vertical"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="16dp">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:scaleType="centerInside"
+        android:src="@mipmap/logo" />
+
+    <TextView
+        android:id="@+id/iv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/normal_text_color"
+        android:textSize="12sp" />
+
+</com.moa.baselib.view.cardview.LinearCardView>

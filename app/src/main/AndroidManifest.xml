@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.moa.rxdemo">
+    <!-- 网络 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- sdcard -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 手机震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- webSocket service访问权限 -->
+    <uses-permission android:name="com.moa.rxdemo.permission.WebSocketService" />
+
+    <!-- 腾讯直播需要的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT" />
+    <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+
+        <!-- 友盟多渠道打包 -->
+        <!-- <meta-data -->
+        <!-- android:name="UMENG_CHANNEL" -->
+        <!-- android:value="${UMENG_CHANNEL_VALUE}"/> -->
+        <activity
+            android:name=".mvp.view.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".mvp.view.guide.GuideActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.my.LoginActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"  />
+        <activity
+            android:name=".RouterActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+
+        <activity
+            android:name="com.moa.baselib.base.ui.H5Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".mvp.view.ScanActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".mvp.view.base.ImagePreViewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".mvp.view.demons.SampleActivity" />
+        <activity android:name=".mvp.view.demons.CropImageActivity" />
+        <activity android:name=".mvp.view.demons.ScanActivity" />
+        <activity android:name=".mvp.view.demons.pickerview.JsonDataActivity" />
+        <activity android:name=".mvp.view.demons.pickerview.PickerActivity" />
+        <activity android:name=".mvp.view.demons.pickerview.TestCircleWheelViewActivity" />
+
+        <service
+            android:name=".mvp.view.service.WebSocketService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":webSocket"
+            android:permission="com.moa.rxdemo.permission.WebSocketService">
+            <intent-filter>
+                <action android:name="com.rxdemo.action.MYSERVICE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name=".db.DataContentProvicer"
+            android:authorities="${applicationId}.DataContentProvider"
+            android:exported="false" />
+
+        <!-- 用作文件分享使用，兼容7.0 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.android7.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

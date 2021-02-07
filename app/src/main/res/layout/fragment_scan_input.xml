@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tt_common_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_input"
+            style="@style/normal_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/student_info_item_input_hint" />
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="5dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/icon_delete"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_scan"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="15dp"
+            android:padding="5dp"
+            android:src="@mipmap/scan_icon"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+

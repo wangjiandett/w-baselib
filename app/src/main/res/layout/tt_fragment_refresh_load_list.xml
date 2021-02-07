@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.moa.baselib.view.swipetoloadlayou.SwipeToLoadLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grading_divider"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="15dp">
+
+    <include
+        android:id="@+id/tt_swipe_refresh_header"
+        layout="@layout/tt_layout_swipe_twitter_header" />
+
+    <RelativeLayout
+        android:id="@+id/tt_swipe_target"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/tt_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@drawable/tt_list_divider"
+            android:dividerHeight="20dp"
+            android:scrollbars="none" />
+
+        <com.moa.rxdemo.mvp.view.base.EmptyView
+            android:id="@+id/ll_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/tt_swipe_load_more_footer"
+        layout="@layout/tt_layout_swipe_refresh_footer" />
+
+</com.moa.baselib.view.swipetoloadlayou.SwipeToLoadLayout>

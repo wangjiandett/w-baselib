@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingTop="15dp"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp">
+
+        <TextView
+            android:id="@+id/tv_username"
+            style="@style/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:maxLength="10"
+            android:ellipsize="end"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            style="@style/title_text"
+            android:layout_toEndOf="@+id/tv_username"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_address"
+        style="@style/normal_gray_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp" />
+
+    <View
+        style="@style/divider"
+        android:layout_marginTop="14dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:duplicateParentState="true"
+        android:layout_height="44dp">
+
+        <CheckedTextView
+            android:id="@+id/tv_default_address"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:drawableStart="@drawable/check_box_selector"
+            android:drawablePadding="8dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:text="@string/default_address"
+            android:textColor="@color/red_dark_gray_color_selector"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/v_divider"
+            android:gravity="center"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:text="@string/edit"
+            android:textColor="@color/color_B2B2B2"
+            android:textSize="12sp" />
+
+        <View
+            android:id="@+id/v_divider"
+            android:layout_width="1dp"
+            android:layout_height="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/tv_delete"
+            android:background="@color/color_B2B2B2" />
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="15dp"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/delete"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingEnd="1dp"
+            android:textColor="@color/color_B2B2B2"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">   <!-- 按钮未点击-->
+        <shape>
+            <solid android:color="@color/tt_list_item_bg_normal" /> <!-- 填充的颜色：这里设置背景透明 -->
+            <corners android:radius="10dip" /> <!-- android:radius 弧形的半径 -->
+        </shape>
+    </item>
+
+    <item android:state_pressed="true">  <!-- 按钮选中状态-->
+        <shape>
+            <solid android:color="@color/tt_list_item_bg_press" /> <!-- 填充的颜色：这里设置背景透明 -->
+            <corners android:radius="10dip" /> <!-- android:radius 弧形的半径 -->
+        </shape>
+    </item>
+</selector>

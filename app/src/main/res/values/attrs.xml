@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LivePlayerTCSeekBarWithText">
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LimitedLineTextView">
+        <attr name="maxLine" format="integer"/>
+        <attr name="textOpen" format="string" />
+        <attr name="textClose" format="string" />
+    </declare-styleable>
+</resources>

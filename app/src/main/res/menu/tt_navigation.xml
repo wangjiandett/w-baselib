@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--
+        BottomNavigationView中的drawable改变，setSelectedItemId是对item做check操作
+        所以可以对icon中的drawable设置check 状态来更新状态图标
+
+        color改变直接在BottomNavigationView中做配置
+      -->
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/menu_home_selector"
+        android:title="@string/home_tab_title_home"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/navigation_races"
+        android:icon="@drawable/menu_race_selector"
+        android:title="@string/home_tab_title_races"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/navigation_grading"
+        android:icon="@drawable/menu_grading_selector"
+        android:title="@string/home_tab_title_grading"
+        app:showAsAction="always"/>
+
+    <!--<item-->
+    <!--    android:id="@+id/navigation_shop"-->
+    <!--    android:layout_width="wrap_content"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:icon="@drawable/menu_home_selector"-->
+    <!--    android:title="@string/home_tab_title_shop"-->
+    <!--    app:showAsAction="always"/>-->
+
+    <item
+        android:id="@+id/navigation_my"
+        android:icon="@drawable/menu_mine_selector"
+        android:title="@string/home_tab_title_my"
+        app:showAsAction="always"/>
+
+</menu>

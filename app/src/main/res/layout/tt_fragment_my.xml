@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/iv_head_icon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/avatar_placeholder_round" />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/ll_edit"
+                android:layout_toEndOf="@+id/iv_head_icon"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/normal_text_color"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_username"
+                android:layout_marginTop="10dp"
+                android:layout_toStartOf="@+id/ll_edit"
+                android:layout_toEndOf="@+id/iv_head_icon"
+                android:textColor="@color/color_888888"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <com.moa.baselib.view.cardview.LinearCardView
+                android:id="@+id/ll_edit"
+                android:layout_width="56dp"
+                android:layout_height="26dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/color_F7F6FF"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="0dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/my_edit_setting" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:text="@string/edit"
+                    android:textColor="@color/color_7A67FB"
+                    android:textSize="12sp" />
+
+            </com.moa.baselib.view.cardview.LinearCardView>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="84dp"
+                android:layout_height="34dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/iv_head_icon"
+                android:background="@mipmap/btn_red_bg"
+                android:radius="17dp"
+                android:text="@string/login_or_register"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/ll_shop_car"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/tt_list_item_selector"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/mine_order_shopping_cart" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_image"
+                    android:text="@string/my_shop_car"
+                    android:textColor="@color/color_888888"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_shop_car_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-12dp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="99"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_toEndOf="@+id/iv_image"
+                    android:background="@drawable/red_dot" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_ready_pay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/tt_list_item_selector"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/mine_order_pending_payment" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_ready_pay"
+                    android:gravity="center"
+                    android:drawableEnd="@mipmap/unread_red_dot"
+                    android:textColor="@color/color_888888"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_running"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/tt_list_item_selector"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/mine_order_in_progress" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_running"
+                    android:textColor="@color/color_888888"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_finish"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/tt_list_item_selector"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/mine_order_completed" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_finish"
+                    android:textColor="@color/color_888888"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_invite"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="14dp"
+            android:visibility="gone"
+            android:src="@color/color_888888" />
+
+        <com.moa.baselib.view.auto.AutoHeightGridView
+            android:id="@+id/gv_functions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="20dp"
+            android:horizontalSpacing="15dp"
+            android:listSelector="@color/transparent"
+            android:numColumns="3"
+            android:verticalSpacing="15dp" />
+
+    </LinearLayout>
+
+</ScrollView>
