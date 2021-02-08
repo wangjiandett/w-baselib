@@ -3,7 +3,6 @@ package com.moa.baselib.base.net;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.moa.baselib.utils.GsonHelper;
 import com.moa.baselib.utils.LogUtils;
 
@@ -15,6 +14,7 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -104,7 +104,7 @@ public class ApiService {
             Retrofit mRetrofit = new Retrofit.Builder()//
                     .client(okHttpBuilder.build())//
                     .addConverterFactory(GsonConverterFactory.create(mGson))//
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//
+                    .addCallAdapterFactory(RxJava3CallAdapterFactory.create())//
                     .baseUrl(baseUrl)// base url
                     .build();
 

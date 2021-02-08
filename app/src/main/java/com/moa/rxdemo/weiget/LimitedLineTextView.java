@@ -4,7 +4,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import android.text.Layout;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -24,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * 末尾显示更多的TextView
  */
-public class LimitedLineTextView extends android.support.v7.widget.AppCompatTextView implements View.OnClickListener {
+public class LimitedLineTextView extends androidx.appcompat.widget.AppCompatTextView implements View.OnClickListener {
     private static final String TAG = LimitedLineTextView.class.getSimpleName();
     // 默认显示的最大行数
     private static final int DEFAULT_MAX_LINE = 3;

@@ -1,6 +1,6 @@
 package com.moa.rxdemo.mvp.view.base.recycler
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import com.moa.baselib.view.recycler.IData
 import com.moa.baselib.view.recycler.RecyclerHolder
@@ -16,7 +16,7 @@ import com.moa.rxdemo.mvp.view.demons.recycler.MyHeaderHolder
  * @param recyclerView
  * @param fragment 用于接收empty view点击的reload回调
  */
-abstract class RefreshAndLoadAdapter<D : IData>(recyclerView: RecyclerView, var fragment: RefreshAndLoadFragment2<D>?) : RefreshRecyclerAdapter<D>(recyclerView) {
+abstract class RefreshAndLoadAdapter<D : IData>(recyclerView: androidx.recyclerview.widget.RecyclerView, var fragment: RefreshAndLoadFragment2<D>?) : RefreshRecyclerAdapter<D>(recyclerView) {
 
     override fun onReload() {
         super.onReload()

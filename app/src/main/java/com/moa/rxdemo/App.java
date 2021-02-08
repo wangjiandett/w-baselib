@@ -1,6 +1,6 @@
 package com.moa.rxdemo;
 
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.moa.baselib.BaseApp;
 import com.moa.baselib.utils.AppUtils;

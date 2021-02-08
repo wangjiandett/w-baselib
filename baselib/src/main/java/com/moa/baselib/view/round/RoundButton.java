@@ -17,7 +17,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 
 import com.moa.baselib.R;
@@ -26,7 +26,7 @@ import com.moa.baselib.utils.ColorUtils;
 /**
  * 圆角button
  */
-public class RoundButton extends android.support.v7.widget.AppCompatButton {
+public class RoundButton extends androidx.appcompat.widget.AppCompatButton {
     
     
     public RoundButton(Context context) {

@@ -8,7 +8,7 @@ import com.moa.rxdemo.net.ApiCreator;
 
 import java.io.File;
 
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 import okhttp3.ResponseBody;
 
 /**

@@ -2,9 +2,9 @@ package com.moa.rxdemo.mvp.view.base;
 
 
 import android.graphics.Typeface
-import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
-import android.support.v4.view.ViewPager.SimpleOnPageChangeListener
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +24,7 @@ import com.moa.rxdemo.R
 abstract class BaseTabPagerFragment : BaseFragment() {
 
     private lateinit var mRadioGroup: RadioGroup
-    private lateinit var mViewPager: ViewPager
+    private lateinit var mViewPager: androidx.viewpager.widget.ViewPager
     private lateinit var mAdapter: PagesAdapter
     private lateinit var mPageList: ArrayList<BaseFragment>
     private lateinit var mPageTabTitle: ArrayList<String>
@@ -33,7 +33,7 @@ abstract class BaseTabPagerFragment : BaseFragment() {
 
     override fun initView(view: View) {
         mRadioGroup = findViewById<RadioGroup>(R.id.rg_tab_layout)
-        mViewPager = findViewById<ViewPager>(R.id.view_pager)
+        mViewPager = findViewById<androidx.viewpager.widget.ViewPager>(R.id.view_pager)
         mAdapter = PagesAdapter(childFragmentManager)
         mViewPager.adapter = mAdapter
 
@@ -45,7 +45,7 @@ abstract class BaseTabPagerFragment : BaseFragment() {
         mPageList = arrayListOf()
         mPageTabTitle = arrayListOf()
         addItemPages(mPageList)
-        mAdapter.setFragments(mPageList as List<Fragment>?)
+        mAdapter.setFragments(mPageList as List<androidx.fragment.app.Fragment>?)
         mAdapter.notifyDataSetChanged()
 
         initTabs()

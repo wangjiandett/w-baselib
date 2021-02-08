@@ -12,6 +12,8 @@ import android.widget.AbsListView;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.moa.baselib.R;
 
 
@@ -959,7 +961,7 @@ public class SwipeToLoadLayout extends ViewGroup {
     }
 
     /**
-     * copy from {@link android.support.v4.widget.SwipeRefreshLayout#canChildScrollUp()}
+     * copy from {@link SwipeRefreshLayout#canChildScrollUp()}
      *
      * @return Whether it is possible for the child view of this layout to
      * scroll up. Override this if the child view is a custom view.

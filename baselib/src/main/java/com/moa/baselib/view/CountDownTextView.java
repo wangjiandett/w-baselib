@@ -13,7 +13,7 @@ import com.moa.baselib.utils.DateFormatting;
  * @author wangjian
  * Created on 2020/8/2 16:26
  */
-public class CountDownTextView extends android.support.v7.widget.AppCompatTextView {
+public class CountDownTextView extends androidx.appcompat.widget.AppCompatTextView {
 
     public CountDownTextView(Context context) {
         super(context);

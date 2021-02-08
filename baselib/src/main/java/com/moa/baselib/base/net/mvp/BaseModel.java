@@ -10,16 +10,18 @@ import com.moa.baselib.base.net.exception.ServerException;
 import com.moa.baselib.utils.LogUtils;
 import com.moa.baselib.utils.net.NetworkUtils;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.ConnectException;
 
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Function;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
 /**
@@ -69,7 +71,7 @@ public abstract class BaseModel<Resp, Data> {
                     }
 
                     @Override
-                    public void onNext(Data value) {
+                    public void onNext(@NotNull Data value) {
                         LogUtils.d("onNext");
                         onHideProgress();
                         onSuccess(value);

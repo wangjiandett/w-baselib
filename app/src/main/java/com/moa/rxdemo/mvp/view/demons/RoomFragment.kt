@@ -1,7 +1,7 @@
 package com.moa.rxdemo.mvp.view.demons
 
 import android.app.AlertDialog
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.content.Context
 import android.view.View
 import android.widget.ListView

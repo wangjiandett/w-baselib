@@ -1,15 +1,14 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
     }
 
@@ -21,63 +20,26 @@ android {
         applicationVariants {
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    def dep = rootProject.ext.dependencies
-    def testDep = rootProject.ext.testDependencies
-
     // test
-    testImplementation testDep["junit"]
-    androidTestImplementation testDep["test-runner"]
-    androidTestImplementation testDep["espresso-core"]
+    testImplementation rootProject.ext.tests
+    // androidx
+    api rootProject.ext.androidxs
+    // networks
+    api rootProject.ext.networks
+    // baselibs
+    api rootProject.ext.baselibs
 
-    api dep["statusBarUtil"]
-    //ARouter
-    api dep["arouter"]
+    // 依赖arouter
+    def others = rootProject.ext.otherDependencies
+    api others["arouter"]
 
-    //android support
-    api dep["support-appcompat-v7"]
-    api dep["support-v4"]
-    api dep["support-design"]
-    api dep["support-preference-v7"]
-    api dep["support-constraint-layout"]
-
-    // 分包使用
-    api dep["support-multidex"]
-
-    //Retrofit
-    api dep["retrofit2"]
-    //Gson converter
-    api dep["converter-gson"]
-    //Okhttp
-    api dep["okhttp3"]
-    //Okhttp logging
-    api dep["okhttp3-logging"]
-    //RxJava　adapter
-    api dep["retrofit2-rxjava2-adapter"]
-    // rxandroid
-    api dep["rxAndroid"]
-
-    // badgeview
-    api dep["badgeview"]
-    // picker view
-    api dep["pickerView"]
-
-    // image selector
-    // https://github.com/zhihu/Matisse
-    api dep["matisse"]
-    api dep["glide"]
-
-    // zxing
-    // https://github.com/bingoogolapple/BGAQRCode-Android
-    api dep["zxing"]
-    api dep["qrcode-core"]
 }

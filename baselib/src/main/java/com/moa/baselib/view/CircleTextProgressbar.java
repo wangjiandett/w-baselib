@@ -8,13 +8,13 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.support.annotation.ColorInt;
+import androidx.annotation.ColorInt;
 import android.util.AttributeSet;
 
 import com.moa.baselib.R;
 
 
-public class CircleTextProgressbar extends android.support.v7.widget.AppCompatTextView {
+public class CircleTextProgressbar extends androidx.appcompat.widget.AppCompatTextView {
 
     /**
      * 外部轮廓的颜色。

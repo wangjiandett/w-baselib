@@ -1,8 +1,8 @@
 package com.moa.rxdemo.mvp.view.base.recycler
 
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import com.moa.baselib.base.ui.BaseFragment
 import com.moa.baselib.utils.AppUtils
@@ -20,8 +20,8 @@ import com.moa.rxdemo.R
  */
 abstract class RefreshAndLoadFragment2<D : IData> : BaseFragment() {
 
-    lateinit var recyclerView: RecyclerView
-    lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    lateinit var recyclerView: androidx.recyclerview.widget.RecyclerView
+    lateinit var swipeRefreshLayout: androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     lateinit var mAdapter: RefreshAndLoadAdapter<D>
     var mCurrentPage = 1
     var mPageSize = 10
@@ -57,16 +57,16 @@ abstract class RefreshAndLoadFragment2<D : IData> : BaseFragment() {
         }
     }
 
-    abstract fun getAdapter(recyclerView: RecyclerView): RefreshAndLoadAdapter<D>
+    abstract fun getAdapter(recyclerView: androidx.recyclerview.widget.RecyclerView): RefreshAndLoadAdapter<D>
 
     open fun getDivider(): LinearDividerItemDecoration{
-        val divider = LinearDividerItemDecoration(context, LinearLayoutManager.VERTICAL)
+        val divider = LinearDividerItemDecoration(context, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL)
         divider.setDrawable(AppUtils.getColor(activity, R.color.list_divider), 1)
         return divider
     }
 
-    open fun getLayoutManager(): RecyclerView.LayoutManager{
-        return LinearLayoutManager(context)
+    open fun getLayoutManager(): androidx.recyclerview.widget.RecyclerView.LayoutManager{
+        return androidx.recyclerview.widget.LinearLayoutManager(context)
     }
 
     fun refresh() {

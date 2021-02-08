@@ -3,7 +3,6 @@ package com.moa.baselib.base.net.exception;
 import android.content.Context;
 
 import com.google.gson.JsonParseException;
-import com.jakewharton.retrofit2.adapter.rxjava2.HttpException;
 import com.moa.baselib.BaseApp;
 import com.moa.baselib.R;
 
@@ -13,6 +12,9 @@ import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.text.ParseException;
+
+import retrofit2.HttpException;
+
 
 /**
  * Deal all the exception

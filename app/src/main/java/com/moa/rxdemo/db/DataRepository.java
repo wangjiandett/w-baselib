@@ -1,6 +1,6 @@
 package com.moa.rxdemo.db;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 import android.database.Cursor;
 
 import com.moa.baselib.base.dispatcher.Runtimes;

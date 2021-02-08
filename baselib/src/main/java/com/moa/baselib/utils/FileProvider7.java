@@ -33,7 +33,7 @@ public class FileProvider7 {
     }
     
     private static Uri getUriForFile24(Context context, File file) {
-        return android.support.v4.content.FileProvider.getUriForFile(context,
+        return androidx.core.content.FileProvider.getUriForFile(context,
             context.getPackageName() + ".android7.FileProvider", file);
     }
     

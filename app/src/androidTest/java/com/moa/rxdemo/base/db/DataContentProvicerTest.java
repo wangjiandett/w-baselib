@@ -9,7 +9,7 @@ import android.content.OperationApplicationException;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
-import android.support.test.InstrumentationRegistry;
+import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.moa.baselib.utils.Randoms;
 import com.moa.rxdemo.db.DataContentProvicer;

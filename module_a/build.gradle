@@ -5,15 +5,14 @@ if (isLibrary.toBoolean()) {
 }
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -50,16 +49,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    def dep = rootProject.ext.dependencies
-    def testDep = rootProject.ext.testDependencies
     // test
-    testImplementation testDep["junit"]
-    androidTestImplementation testDep["test-runner"]
-    androidTestImplementation testDep["espresso-core"]
-
+    testImplementation rootProject.ext.tests
     // 基础项目library
     implementation project(':baselib')
 
+    def others = rootProject.ext.otherDependencies
     //ARouter compiler
-    annotationProcessor dep["arouter-compiler"]
+    annotationProcessor others["arouter-compiler"]
 }

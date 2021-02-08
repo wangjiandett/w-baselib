@@ -3,9 +3,9 @@ package com.moa.baselib.utils;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.support.annotation.ColorRes;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 public class ColorUtils {
     private static final int ENABLE_ATTR = android.R.attr.state_enabled;

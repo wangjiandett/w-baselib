@@ -1,13 +1,13 @@
 package com.moa.rxdemo.mvp.model;
 
-import com.moa.rxdemo.net.BaseResponse;
 import com.moa.baselib.base.net.mvp.BaseUploadFileModel;
 import com.moa.baselib.base.net.mvp.ValueCallback;
 import com.moa.rxdemo.net.ApiCreator;
+import com.moa.rxdemo.net.BaseResponse;
 
 import java.io.File;
 
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 import okhttp3.RequestBody;
 
 /**

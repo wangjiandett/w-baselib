@@ -1,9 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
 
 static def releaseTime() {
@@ -11,18 +8,18 @@ static def releaseTime() {
 }
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
-        applicationId rootProject.ext.applicationId
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
 
-        // Enabling multidex support 分包支持
+        // Enable multiDex support 分包支持
         multiDexEnabled true
 
         javaCompileOptions {
@@ -106,11 +103,6 @@ android {
     }
 
     packagingOptions {
-        pickFirst '**/libc++_shared.so'
-        doNotStrip "*/armeabi/libYTCommon.so"
-        doNotStrip "*/armeabi-v7a/libYTCommon.so"
-        doNotStrip "*/x86/libYTCommon.so"
-        doNotStrip "*/arm64-v8a/libYTCommon.so"
     }
 
     lintOptions {
@@ -137,55 +129,30 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def dep = rootProject.ext.dependencies
-    def testDep = rootProject.ext.testDependencies
 
     // test
-    testImplementation testDep["junit"]
-    androidTestImplementation testDep["test-runner"]
-    androidTestImplementation testDep["espresso-core"]
-
+    testImplementation rootProject.ext.tests
     // kotlin
-    implementation dep["kotlin-stdlib-jdk7"]
-    // okhttp 调用build的时候日志有个warning提示
-    // 参考地址https://blog.csdn.net/irizhao/article/details/103643788
-    implementation dep["conscrypt-android"]
-
-//    'annotationProcessor' dependencies won't be recognized as kapt annotation processors
-//    room:compiler
-//    lifecycle:compiler
-//    arouter-compiler
-//    需要使用kapt
-
-    // room
-    implementation dep["room"]
-    kapt dep["room-compiler"]
-
-    // livedata support
-    // ViewModel and LiveData
-    implementation dep["lifecycle"]
-    kapt dep["lifecycle-compiler"]
-
-    // navigation
-    implementation dep["navigation-fragment"]
-    implementation dep["navigation-ui"]
-
-    implementation dep["eventbus"]
-
-    // 图片预览
-    implementation 'me.kareluo.intensify:image:1.1.0'
-
-    //ARouter compiler
-    kapt dep["arouter-compiler"]
-    //---------------------------------------------
+    implementation rootProject.ext.kotlins
 
     // base lib
     implementation project(':baselib')
+
+    def others = rootProject.ext.otherDependencies
+    // room
+    implementation others["room"]
+    kapt others["room-compiler"]
+
+    // navigation
+    implementation others["navigation-fragment"]
+    implementation others["navigation-ui"]
+
+    //---------------------------------------------
+    // ARouter compiler
+    kapt others["arouter-compiler"]
 
     if (isLibrary.toBoolean()) {
         // module_a
         implementation project(':module_a')
     }
 }
-
-

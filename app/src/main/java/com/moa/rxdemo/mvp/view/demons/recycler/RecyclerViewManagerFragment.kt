@@ -1,9 +1,9 @@
 package com.moa.rxdemo.mvp.view.demons.recycler
 
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import android.view.View
 import com.moa.baselib.base.ui.BaseFragment
 import com.moa.baselib.utils.AppUtils
@@ -20,7 +20,7 @@ import com.moa.rxdemo.R
 
 open class RecyclerViewManagerFragment : BaseFragment() {
 
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView: androidx.recyclerview.widget.RecyclerView
     lateinit var adapter: ManagerAdapter
 
     override fun getLayoutId(): Int {
@@ -33,27 +33,27 @@ open class RecyclerViewManagerFragment : BaseFragment() {
 
 
         view.findViewById<View>(R.id.btn_linear_vertical).setOnClickListener {
-            setLinearManager(LinearLayoutManager.VERTICAL)
+            setLinearManager(androidx.recyclerview.widget.LinearLayoutManager.VERTICAL)
         }
 
         view.findViewById<View>(R.id.btn_linear_horizontal).setOnClickListener {
-            setLinearManager(LinearLayoutManager.HORIZONTAL)
+            setLinearManager(androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL)
         }
 
         view.findViewById<View>(R.id.btn_grid_horizontal).setOnClickListener {
-            setGridManager(GridLayoutManager.HORIZONTAL)
+            setGridManager(androidx.recyclerview.widget.GridLayoutManager.HORIZONTAL)
         }
 
         view.findViewById<View>(R.id.btn_grid_vertical).setOnClickListener {
-            setGridManager(GridLayoutManager.VERTICAL)
+            setGridManager(androidx.recyclerview.widget.GridLayoutManager.VERTICAL)
         }
 
         view.findViewById<View>(R.id.btn_staggered_horizontal).setOnClickListener {
-            setStaggeredManager(StaggeredGridLayoutManager.HORIZONTAL)
+            setStaggeredManager(androidx.recyclerview.widget.StaggeredGridLayoutManager.HORIZONTAL)
         }
 
         view.findViewById<View>(R.id.btn_staggered_vertical).setOnClickListener {
-            setStaggeredManager(StaggeredGridLayoutManager.VERTICAL)
+            setStaggeredManager(androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL)
         }
     }
 
@@ -79,12 +79,12 @@ open class RecyclerViewManagerFragment : BaseFragment() {
             showToast("item long click $data, position:$position")
         }
 
-        setGridManager(LinearLayoutManager.HORIZONTAL)
+        setGridManager(androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL)
     }
 
     public fun setLinearManager(orientation: Int) {
 
-        val layoutManager = LinearLayoutManager(context, orientation, false)
+        val layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context, orientation, false)
         // 系统默认分割线样式,不支持网状
         val divider = LinearDividerItemDecoration(context, orientation)
         // 自定义分割线样式
@@ -99,7 +99,7 @@ open class RecyclerViewManagerFragment : BaseFragment() {
 
     public fun setGridManager(orientation: Int) {
 
-        val layoutManager = GridLayoutManager(context, 3, orientation, false)
+        val layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 3, orientation, false)
         // 网状分割线
         val divider = GridDividerItemDecoration(activity)
         divider.setEnableEmptyView(true)
@@ -112,7 +112,7 @@ open class RecyclerViewManagerFragment : BaseFragment() {
     public fun setStaggeredManager(orientation: Int) {
 
         // 瀑布流由于item有时不是按照顺序排列，导致分割线绘制会有问题
-        val layoutManager = StaggeredGridLayoutManager(2, orientation)
+        val layoutManager = androidx.recyclerview.widget.StaggeredGridLayoutManager(2, orientation)
         // 网状分割线
         val divider = GridDividerItemDecoration(activity)
         divider.setEnableEmptyView(true)
@@ -121,7 +121,7 @@ open class RecyclerViewManagerFragment : BaseFragment() {
         updateDataView(divider, layoutManager)
     }
 
-    private fun updateDataView(divider: RecyclerView.ItemDecoration, layoutManager: RecyclerView.LayoutManager) {
+    private fun updateDataView(divider: androidx.recyclerview.widget.RecyclerView.ItemDecoration, layoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager) {
         // 移除已有的divider防止重复添加
         if (recyclerView.itemDecorationCount > 0) {
             recyclerView.removeItemDecorationAt(0)

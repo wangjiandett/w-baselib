@@ -1,128 +1,114 @@
-
 // Define versions in a single place
 ext {
 
-    applicationId = "com.wbaselib.demo"
+    //android开发版本配置
+    android = [
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.3",
 
-    // Sdk and tools
-    compileSdkVersion = 28
-    buildToolsVersion = "28.0.3"
-    minSdkVersion = 18
-    targetSdkVersion = 28
-    // version
-    versionCode = 1
-    versionName = "1.0.2"
+            applicationId    : "com.wbaselib.demo",
+            minSdkVersion    : 18,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.0.0",
+    ]
 
-    // test
-    junitVersion = "4.12"
-    testRunnerVersion = "1.0.2"
-    espressoCoreVersion = "3.0.2"
-
-    // App dependencies
-    supportLibraryVersion = "28.0.0"
-    support_multidex_version = "1.0.3"
-    constraintLayoutVersion = "2.0.1"
-    lifecycle_version = "1.1.1"
-    room_version = "1.1.1"
-    navigation_fragment_version = "1.0.0-alpha11"
+    // version配置
+    versions = [
+            // kotlin
+            kotlin: "1.3.72"
+    ]
 
     // kotlin
-    kotlin_version = "1.3.11"
-
-    statusBarUtil_version = "1.7.5"
-
-    // net
-    retrofit2Version = "2.9.0"
-    okHttpVersion = "4.7.2"
-    okhttp3LogVersion = "4.7.2"
-    rxAndroidVersion = "2.1.1"
-    retrofit2Rxjava2AdapterVersion = "1.0.0"
-    converterGsonVersion = "2.9.0"
-
-    // badge
-    badgeView_version = "1.1.3"
-    // picker view
-    pickerView_version = "4.1.9"
-
-    // gallery
-    matisse_version = "0.5.1"
-    glide_version = "4.8.0"
-
-    // zxing
-    zxing_version = "3.3.3"
-    qrcode_core_version = "1.3.6"
-
-    arouter_version = "1.4.1"
-    arouter_compile_version = "1.2.2"
-
-    eventbus_version = "3.2.0"
-
-    conscrypt_android_version = "2.5.0"
-
-
-    ///////////////=================================
+    kotlinDependencies = [
+            "kotlin-stdlib": "org.jetbrains.kotlin:kotlin-stdlib:${versions["kotlin"]}",
+    ]
 
     // test
     testDependencies = [
-            "junit"         : "junit:junit:${junitVersion}",
-            "test-runner"   : "com.android.support.test:runner:${testRunnerVersion}",
-            "espresso-core" : "com.android.support.test.espresso:espresso-core:${espressoCoreVersion}"
+            'junit'        : "junit:junit:4.12",
+            'runner'       : 'androidx.test:runner:1.2.0',
+            'junit-ext'    : 'androidx.test.ext:junit:1.1.2',
+            'espresso-core': 'androidx.test.espresso:espresso-core:3.2.0'
     ]
 
-    dependencies = [
-            // support
-            "support-design"            : "com.android.support:design:${supportLibraryVersion}",
-            "support-v4"                : "com.android.support:support-v4:${supportLibraryVersion}",
-            "support-appcompat-v7"      : "com.android.support:appcompat-v7:${supportLibraryVersion}",
-            "support-percent"           : "com.android.support:percent:${supportLibraryVersion}",
-            "support-preference-v7"     : "com.android.support:preference-v7:${supportLibraryVersion}",
-            "support-multidex"          : "com.android.support:multidex:${support_multidex_version}",
-            "support-constraint-layout" : "com.android.support.constraint:constraint-layout:$constraintLayoutVersion",
-            "conscrypt-android"         : "org.conscrypt:conscrypt-android:$conscrypt_android_version",
-            // kotlin
-            "kotlin-stdlib-jdk7"        : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}",
+    // androidx
+    androidxDependencies = [
+            appcompat             : "androidx.appcompat:appcompat:1.2.0",
+            material              : "com.google.android.material:material:1.1.0",
+            'core-ktx'            : "androidx.core:core-ktx:1.3.2",
+            'constraint-layout'   : "androidx.constraintlayout:constraintlayout:2.0.4",
+            annotation            : 'androidx.annotation:annotation:1.1.0',
+            "multidex"            : 'androidx.multidex:multidex:2.0.0',
+            "support-v4"          : 'androidx.legacy:legacy-support-v4:1.0.0',
+
+            // ViewModel and LiveData
+            "lifecycle-extensions": 'androidx.lifecycle:lifecycle-extensions:2.2.0',
+            // alternatively - just ViewModel
+            //"lifecycle-viewmodel" : 'androidx.lifecycle:lifecycle-viewmodel:2.2.0',
+            // alternatively - just LiveData
+            //"lifecycle-livedata"  : 'androidx.lifecycle:lifecycle-livedata:2.2.0',
+    ]
+
+    // network
+    retrofitDependencies = [
+            // "retrofit2-rxjava2-adapter": "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0",
+            "okhttp3"          : "com.squareup.okhttp3:okhttp:4.8.0",
+            "okhttp3-logging"  : "com.squareup.okhttp3:logging-interceptor:4.8.0",
+            "retrofit2"        : "com.squareup.retrofit2:retrofit:2.9.0",
+            "adapter-rxjava"   : "com.squareup.retrofit2:adapter-rxjava3:2.9.0",
+            "converter-gson"   : "com.squareup.retrofit2:converter-gson:2.9.0",
+            "rxAndroid"        : "io.reactivex.rxjava3:rxandroid:3.0.0",
+
+            // okhttp 调用build的时候日志有个warning提示
+            // 参考地址https://blog.csdn.net/irizhao/article/details/103643788
+            "conscrypt-android": "org.conscrypt:conscrypt-android:2.5.0"
+    ]
+
+    baselibDependencies = [
+
             // 库地址：https://github.com/Ye-Miao/StatusBarUtil
-            "statusBarUtil"             : "com.github.Ye-Miao:StatusBarUtil:${statusBarUtil_version}",
-
-            // net
-            "retrofit2-rxjava2-adapter" : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${retrofit2Rxjava2AdapterVersion}",
-            "rxAndroid"                 : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
-            "okhttp3"                   : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
-            "okhttp3-logging"           : "com.squareup.okhttp3:logging-interceptor:${okhttp3LogVersion}",
-            "retrofit2"                 : "com.squareup.retrofit2:retrofit:${retrofit2Version}",
-            "converter-gson"            : "com.squareup.retrofit2:converter-gson:${converterGsonVersion}",
-
-            // lifecycle
-            "lifecycle"                 : "android.arch.lifecycle:extensions:${lifecycle_version}",
-            "lifecycle-compiler"        : "android.arch.lifecycle:compiler:${lifecycle_version}",
-
-            // room
-            "room"                      : "android.arch.persistence.room:runtime:${room_version}",
-            "room-compiler"             : "android.arch.persistence.room:compiler:${room_version}",
-
-            // navigation
-            "navigation-fragment"       : "android.arch.navigation:navigation-fragment:${navigation_fragment_version}",
-            "navigation-ui"             : "android.arch.navigation:navigation-ui:${navigation_fragment_version}",
+            "statusBarUtil"  : "com.github.Ye-Miao:StatusBarUtil:1.7.5",
 
             // badge
-            "badgeview"                 : "q.rorbin:badgeview:${badgeView_version}",
-            "pickerView"                : "com.contrarywind:Android-PickerView:${pickerView_version}",
+            "badgeview"      : "q.rorbin:badgeview:1.1.3",
+            "pickerView"     : "com.contrarywind:Android-PickerView:4.1.9",
 
-            // gallery
-            "matisse"                   : "com.zhihu.android:matisse:${matisse_version}",
-            "glide"                     : "com.github.bumptech.glide:glide:${glide_version}",
+            // gallery https://github.com/zhihu/Matisse
+            "matisse"        : "com.zhihu.android:matisse:0.5.2",
+            "glide"          : "com.github.bumptech.glide:glide:4.12.0",
 
             // zxing
-            "zxing"                     : "com.google.zxing:core:${zxing_version}",
-            "qrcode-core"               : "cn.bingoogolapple:bga-qrcode-core:${qrcode_core_version}",
+            "zxing"          : "com.google.zxing:core:3.3.3",
+            "qrcode-core"    : "cn.bingoogolapple:bga-qrcode-core:1.3.6",
 
-            // arouter
-            "arouter"                   : "com.alibaba:arouter-api:${arouter_version}",
-            "arouter-compiler"          : "com.alibaba:arouter-compiler:${arouter_compile_version}",
-            "eventbus"                  : "org.greenrobot:eventbus:${eventbus_version}",
-
-            // 腾讯直播
-            "liteavSdk"           : "com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release",
+            // eventbus
+            "eventbus"       : "org.greenrobot:eventbus:3.2.0",
+            // 图片预览
+            "intensify-image": "me.kareluo.intensify:image:1.1.0",
 
     ]
+
+    otherDependencies = [
+
+            // arouter
+            "arouter"            : "com.alibaba:arouter-api:1.5.1",
+            "arouter-compiler"   : "com.alibaba:arouter-compiler:1.5.1",
+
+            // room
+            "room"               : 'androidx.room:room-runtime:2.2.6',
+            "room-compiler"      : 'androidx.room:room-compiler:2.2.6',
+
+            // navigation
+            "navigation-fragment": 'androidx.navigation:navigation-fragment-ktx:2.3.2',
+            "navigation-ui"      : 'androidx.navigation:navigation-ui-ktx:2.3.2',
+    ]
+
+
+    kotlins = kotlinDependencies.values()
+    androidxs = androidxDependencies.values()
+    networks = retrofitDependencies.values()
+    tests = testDependencies.values()
+    baselibs = baselibDependencies.values()
+
 }

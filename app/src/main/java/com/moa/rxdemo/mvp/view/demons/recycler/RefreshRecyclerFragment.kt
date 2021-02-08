@@ -1,8 +1,8 @@
 package com.moa.rxdemo.mvp.view.demons.recycler
 
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import com.moa.baselib.base.ui.BaseFragment
 import com.moa.baselib.utils.AppUtils
@@ -20,8 +20,8 @@ class RefreshRecyclerFragment : BaseFragment() {
 
 
     private lateinit var adapter: MyRefreshRecyclerAdapter
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var recyclerView: androidx.recyclerview.widget.RecyclerView
+    private lateinit var swipeRefreshLayout: androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
     override fun getLayoutId(): Int {
         return R.layout.tt_fragment_refresh_recycler
@@ -35,7 +35,7 @@ class RefreshRecyclerFragment : BaseFragment() {
         adapter = MyRefreshRecyclerAdapter(recyclerView, this)
 
         // ----------------------------------------------
-        val layoutManager = GridLayoutManager(context, 3)
+        val layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 3)
         // 系统默认分割线样式,不支持网状
         //val divider = LinearDividerItemDecoration(context, LinearLayoutManager.VERTICAL)
         // 网状分割线
@@ -46,7 +46,7 @@ class RefreshRecyclerFragment : BaseFragment() {
         divider.setDrawable(AppUtils.getDrawable(context, R.drawable.tt_recycler_divider))
 
 
-        recyclerView.layoutManager = layoutManager as RecyclerView.LayoutManager?
+        recyclerView.layoutManager = layoutManager as androidx.recyclerview.widget.RecyclerView.LayoutManager?
         // 由于adapter中onAttachedToRecyclerView和onViewAttachedToWindow需要获取manager所以要放到
         // 设置manager后面执行，才能获取到
         recyclerView.adapter = adapter

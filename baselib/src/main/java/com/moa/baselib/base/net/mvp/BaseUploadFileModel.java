@@ -1,4 +1,5 @@
 package com.moa.baselib.base.net.mvp;
+
 import android.text.TextUtils;
 
 import com.moa.baselib.base.net.ProgressRequestBody;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;

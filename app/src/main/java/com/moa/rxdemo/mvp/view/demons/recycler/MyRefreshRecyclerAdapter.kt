@@ -1,12 +1,12 @@
 package com.moa.rxdemo.mvp.view.demons.recycler
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import com.moa.baselib.view.recycler.RefreshRecyclerAdapter
 import com.moa.baselib.view.recycler.RecyclerHolder
 import com.moa.rxdemo.R
 
-class MyRefreshRecyclerAdapter(recyclerView: RecyclerView, var fragment: RefreshRecyclerFragment) : RefreshRecyclerAdapter<Data>(recyclerView) {
+class MyRefreshRecyclerAdapter(recyclerView: androidx.recyclerview.widget.RecyclerView, var fragment: RefreshRecyclerFragment) : RefreshRecyclerAdapter<Data>(recyclerView) {
 
     override fun onReload() {
         super.onReload()

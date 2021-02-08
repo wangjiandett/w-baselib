@@ -17,7 +17,7 @@ package com.moa.baselib.view.cardview;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 
 /**

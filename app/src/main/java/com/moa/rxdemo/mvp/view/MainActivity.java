@@ -2,17 +2,18 @@ package com.moa.rxdemo.mvp.view;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationMenuView;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.moa.baselib.RoutePath;
 import com.moa.baselib.base.net.mvp.SimpleValueCallback;
 import com.moa.baselib.base.ui.BaseActivity;
@@ -174,7 +175,7 @@ public class MainActivity extends BaseActivity {
             // 获得viewIndex对应子tab
             View view = menuView.getChildAt(viewIndex);
             // 从子tab中获得其中显示图片的ImageView
-            View icon = view.findViewById(android.support.design.R.id.icon);
+            View icon = view.findViewById(com.google.android.material.R.id.icon);
             // 获得图标的宽度
             int iconWidth = icon.getWidth();
             // 获得tab的宽度/2

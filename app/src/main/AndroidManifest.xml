@@ -111,7 +111,7 @@
 
         <!-- 用作文件分享使用，兼容7.0 -->
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.android7.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
