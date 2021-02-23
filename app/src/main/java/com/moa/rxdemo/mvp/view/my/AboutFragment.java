@@ -23,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public class AboutFragment extends BaseFragment {
 
-    private static int ENTER_TIMES = 5;
+    private static final int ENTER_TIMES = 5;
     private int mClickTimes = 0;
 
     @Override
