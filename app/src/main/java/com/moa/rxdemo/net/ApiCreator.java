@@ -22,26 +22,26 @@ public class ApiCreator {
     /**
      * 添加共用header信息
      */
-    private static HeaderParamsInterceptor mHeadersInterceptor = new HeaderParamsInterceptor.Builder().build();
-
-    /**
-     * net request config
-     */
-    private static final ApiService APISERVICE = new ApiService.Builder().interceptor(updateHeadersInterceptor()).baseUrl(Constant.BASE_URL).build();
+    private static final HeaderParamsInterceptor mHeadersInterceptor = new HeaderParamsInterceptor.Builder().build();
 
     /**
      * 接口列表
      */
-    public static ApiInterfaces apiInterfaces = APISERVICE.getApis(ApiInterfaces.class);
+    public static ApiInterfaces apiInterfaces = getApiService().getApis(ApiInterfaces.class);
 
     /**
-     * 拼接图片地址
-     *
-     * @param imgSubUrl 服务器返回的sub图片地址
-     * @return 完整的图片地址
+     * net request config
      */
-    public static String getImageUrl(String imgSubUrl) {
-        return Constant.BASE_IMG_URL + imgSubUrl;
+    private static ApiService getApiService() {
+        return new ApiService //
+                .Builder() //
+                .interceptor(updateHeadersInterceptor()) //
+                .baseUrl(getBaseUrl()) //
+                .build();
+    }
+
+    private static String getBaseUrl() {
+        return AppConfig.getLocalBaseUrl();
     }
 
     /**
@@ -82,7 +82,7 @@ public class ApiCreator {
      */
     public static UploadApiInterfaces getUploadFileInterface(ProgressResultListener listener) {
         ApiService test = new ApiService.Builder()
-                .baseUrl(Constant.BASE_URL)
+                .baseUrl(getBaseUrl())
                 // 监听下载进度，需要设置拦截器
                 .netInterceptor(new UploadInterceptor(listener))
                 .interceptor(updateHeadersInterceptor())

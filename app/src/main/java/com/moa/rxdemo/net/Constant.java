@@ -24,11 +24,6 @@ public final class Constant {
                                         "wss://socket.idcd.com:1443";
 
     /**
-     * 图片base地址
-     */
-    public static final String BASE_IMG_URL = "https://hsmy2020.oss-cn-hangzhou.aliyuncs.com/";
-
-    /**
      * 成功响应码
      */
     public static final int SUCCESS_CODE = 1;

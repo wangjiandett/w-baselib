@@ -7,7 +7,6 @@ import com.moa.baselib.utils.AppUtils;
 import com.moa.rxdemo.db.AppDatabase;
 import com.moa.rxdemo.db.DataRepository;
 import com.moa.rxdemo.mvp.bean.UserInfoResponse;
-import com.moa.rxdemo.mvp.view.service.WebSocketService;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -30,7 +29,7 @@ public class App extends BaseApp {
         mAppInstance = this;
         if (AppUtils.isMainProcess(this)) {
             // 启动web socket
-            WebSocketService.startService(this);
+            // WebSocketService.startService(this);
         }
     }
 
@@ -71,7 +70,7 @@ public class App extends BaseApp {
     /**
      * 用于监听登录信息变化，动态更新界面显示
      */
-    private MutableLiveData<UserInfoResponse> userInfoLiveData = new MutableLiveData<>();
+    private final MutableLiveData<UserInfoResponse> userInfoLiveData = new MutableLiveData<>();
 
     public MutableLiveData<UserInfoResponse> getUserInfoLiveData() {
         return userInfoLiveData;

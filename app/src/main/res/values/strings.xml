@@ -46,6 +46,10 @@
     <string name="pay_fail">支付失败</string>
     <string name="pay_success">支付成功</string>
 
+    <!-- debug -->
+    <string name="modify_base_url_tip">保存成功，需杀死重启app方可生效</string>
+    <string name="click_enter_develop_model">再点击%1$s次进入开发者模式</string>
+
     <!-- 首页 -->
     <string name="home_title">中国艺术协会考级平台</string>
     <string name="home_newest_data">最新动态</string>

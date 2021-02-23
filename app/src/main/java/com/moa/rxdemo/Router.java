@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 
 import com.moa.baselib.base.ui.H5Activity;
@@ -11,7 +12,11 @@ import com.moa.rxdemo.mvp.view.MainActivity;
 import com.moa.rxdemo.mvp.view.ScanActivity;
 import com.moa.rxdemo.mvp.view.SplashActivity;
 import com.moa.rxdemo.mvp.view.guide.GuideActivity;
+import com.moa.rxdemo.mvp.view.my.AboutFragment;
+import com.moa.rxdemo.mvp.view.my.DebugFragment;
 import com.moa.rxdemo.mvp.view.my.LoginActivity;
+import com.moa.rxdemo.mvp.view.my.LoginFragment;
+import com.moa.rxdemo.mvp.view.my.SingleInputFragment;
 
 /**
  * 路由到各个界面
@@ -81,7 +86,7 @@ public class Router {
      * @param context context
      */
     public static void goSetting(Context context) {
-        goActivity(context, RouterActivity.getIntent(context, RouterActivity.SETTING_PAGE));
+        goActivity(context, RouterActivity.getIntent(context, LoginFragment.class));
     }
 
     /**
@@ -90,10 +95,17 @@ public class Router {
      * @param context context
      */
     public static void goAbout(Context context) {
-        goActivity(context, RouterActivity.getIntent(context, RouterActivity.ABOUT_PAGE));
+        goActivity(context, RouterActivity.getIntent(context, AboutFragment.class));
     }
 
-
+    /**
+     * 跳转到调试界面
+     *
+     * @param context context
+     */
+    public static void goDebug(Context context) {
+        goActivity(context, RouterActivity.getIntent(context, DebugFragment.class));
+    }
 
     /**
      * 跳转用户协议
@@ -113,29 +125,43 @@ public class Router {
         H5Activity.go(context, new H5Activity.H5Request(text));
     }
 
-
-    /**
-     * 问题建议界面
-     *
-     * @param context context
-     */
-    public static void goSuggestionPage(Context context) {
-        goActivity(context, RouterActivity.getIntent(context, RouterActivity.SUGGESTION_PAGE));
-    }
-
-
     /**
      * 跳转到扫描输入或手动输入界面
      */
     public static void goScanInput(Fragment fragment, String oldText, int reqCode) {
         Bundle bundle = new Bundle();
         bundle.putString("oldText", oldText);
-        goActivity(fragment, RouterActivity.getIntent(fragment.getActivity(), RouterActivity.SCAN_INPUT_PAGE, bundle), reqCode);
+        goActivity(fragment, RouterActivity.getIntent(fragment.getActivity(), SingleInputFragment.class, bundle), reqCode);
     }
 
-    public static void goScanActivity(Fragment fragment, int reqCode) {
-        goActivity(fragment, new Intent(fragment.getContext(), ScanActivity.class), reqCode);
+    /**
+     * 跳转到扫一扫界面
+     *
+     * @param fragment 跳转入口界面
+     * @param activity 跳转入口界面
+     * @param reqCode 请求码
+     */
+    public static void goScanActivity(Fragment fragment, Activity activity, int reqCode) {
+        if(fragment != null){
+            goActivity(fragment, ScanActivity.Companion.getIntent(fragment.getContext()), reqCode);
+        }else{
+            goActivity(activity, ScanActivity.Companion.getIntent(activity), reqCode);
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //
     // ==========================公共跳转方法============================================================

@@ -10,7 +10,7 @@ import com.moa.rxdemo.R;
 import com.moa.rxdemo.Router;
 import com.moa.rxdemo.mvp.bean.CheckUpdateResponse;
 import com.moa.rxdemo.mvp.model.CheckUpdateModel;
-import com.moa.rxdemo.mvp.view.demons.SampleActivity;
+import com.moa.rxdemo.utils.AppConfig;
 import com.moa.rxdemo.utils.UpdateHelper;
 import com.moa.rxdemo.weiget.SettingItemView;
 
@@ -23,8 +23,8 @@ import org.jetbrains.annotations.NotNull;
  */
 public class AboutFragment extends BaseFragment {
 
-    public AboutFragment() {
-    }
+    private static int ENTER_TIMES = 5;
+    private int mClickTimes = 0;
 
     @Override
     protected int getLayoutId() {
@@ -65,7 +65,22 @@ public class AboutFragment extends BaseFragment {
         });
 
         findViewById(R.id.iv_head_icon).setOnClickListener(v -> {
-            startActivity(SampleActivity.Companion.getIntent(getActivity()));
+            boolean isOpen = AppConfig.isDebugModeOpen();
+            if (isOpen) {
+                Router.goDebug(getActivity());
+            } else {
+                // 进入debug
+                mClickTimes++;
+                // 点击2次后才提示，防止用户误触
+                if (mClickTimes > 2 && mClickTimes < ENTER_TIMES) {
+                    showToast(getString(R.string.click_enter_develop_model, (ENTER_TIMES - mClickTimes)));
+                }
+
+                if (mClickTimes >= ENTER_TIMES) {
+                    AppConfig.saveDebugModeOpen(true);
+                    Router.goDebug(getActivity());
+                }
+            }
         });
     }
 

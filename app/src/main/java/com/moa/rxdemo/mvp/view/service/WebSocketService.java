@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 
 /**
- * 封装WebSocket功能
+ * 封装WebSocket功能，实现与服务器间的socket通讯
  * <p>
  * Created by：wangjian on 2018/1/24 16:47
  */

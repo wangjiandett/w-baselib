@@ -1,6 +1,5 @@
 package com.moa.rxdemo.mvp.view.my;
 
-import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.moa.baselib.base.ui.BaseFragment;
 import com.moa.baselib.utils.AppUtils;
@@ -94,9 +95,6 @@ public class MyFragment extends BaseFragment implements UserInfoContract.IUserIn
                     if (hasPermission) {
                         callCustomerServicePhone();
                     }
-                    break;
-                case R.string.my_send_advice:
-                    Router.goSuggestionPage(getActivity());
                     break;
                 case R.string.my_about_us:
                     Router.goAbout(getActivity());

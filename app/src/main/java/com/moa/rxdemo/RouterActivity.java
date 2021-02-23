@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import com.moa.baselib.base.ui.BaseActivity;
-import com.moa.rxdemo.mvp.view.my.AboutFragment;
-import com.moa.rxdemo.mvp.view.my.SingleInputFragment;
 
 /**
  * fragment通用界面中转
@@ -17,14 +15,6 @@ import com.moa.rxdemo.mvp.view.my.SingleInputFragment;
  * Created by：wangjian on 2017/12/20 16:25
  */
 public class RouterActivity extends BaseActivity {
-
-    public static final int SETTING_PAGE = 0x01; // 设置界面
-    public static final int ABOUT_PAGE = 0x02; // 关于界面
-    public static final int SUGGESTION_PAGE = 0x21; // 意见反馈界面
-    public static final int SCAN_INPUT_PAGE = 0x27; // 扫描输入界面
-    public static final int SINGLE_INPUT_PAGE = 0x42; // 单行输入修改
-
-    private int pageType;
 
     @Override
     protected int getLayoutId() {
@@ -35,17 +25,13 @@ public class RouterActivity extends BaseActivity {
     protected void initView() {
         super.initView();
         Intent intent = getIntent();
-
         if (intent != null) {
-            pageType = intent.getIntExtra(EXTRA_DATA, SETTING_PAGE);
-            Bundle bundle = intent.getExtras();
-            switch (pageType) {
-                case ABOUT_PAGE:
-                    showFragment(new AboutFragment());
-                    break;
-                case SINGLE_INPUT_PAGE:
-                    showFragment(new SingleInputFragment(), bundle);
-                    break;
+            try {
+                Class<?> mFragmentClass = (Class<?>) intent.getSerializableExtra(EXTRA_DATA);
+                Bundle bundle = intent.getExtras();
+                showFragment((Fragment) mFragmentClass.newInstance(), bundle);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -70,17 +56,17 @@ public class RouterActivity extends BaseActivity {
         replaceFragment(fragment, R.id.fl_container, false);
     }
 
-    public static Intent getIntent(Context context, int pageType) {
-        return getIntent(context, pageType, null);
+    public static Intent getIntent(Context context, Class<?> clazz) {
+        return getIntent(context, clazz, null);
     }
 
-    public static Intent getIntent(Context context, int pageType, Bundle bundle) {
+    public static Intent getIntent(Context context, Class<?> clazz, Bundle bundle) {
         Intent intent = new Intent(context, RouterActivity.class);
         if (bundle != null) {
             intent.putExtras(bundle);
         }
 
-        intent.putExtra(EXTRA_DATA, pageType);
+        intent.putExtra(EXTRA_DATA, clazz);
         return intent;
     }
 

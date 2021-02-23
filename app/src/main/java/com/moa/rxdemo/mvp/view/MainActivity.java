@@ -40,9 +40,6 @@ import q.rorbin.badgeview.QBadgeView;
 public class MainActivity extends BaseActivity {
     
     public static final String FRAG_TAG_HOME = "fragment.home";
-    public static final String FRAG_TAG_RACE = "fragment.race";
-    public static final String FRAG_TAG_GRADING = "fragment.grading";
-    public static final String FRAG_TAG_SHOP = "fragment.shop";
     public static final String FRAG_TAG_MY = "fragment.my";
     
     private BottomNavigationView bottomNavigationView;
@@ -91,15 +88,6 @@ public class MainActivity extends BaseActivity {
                     case R.id.navigation_home:
                         switchFragment(FRAG_TAG_HOME);
                         return true;
-                    case R.id.navigation_races:
-                        switchFragment(FRAG_TAG_RACE);
-                        return true;
-                    case R.id.navigation_grading:
-                        switchFragment(FRAG_TAG_GRADING);
-                        return true;
-                    // case R.id.navigation_shop:
-                    //     switchFragment(FRAG_TAG_SHOP);
-                    //     return true;
                     case R.id.navigation_my:
                         switchFragment(FRAG_TAG_MY);
                         return true;
@@ -202,10 +190,6 @@ public class MainActivity extends BaseActivity {
         if (fragment == null) {
             if (FRAG_TAG_HOME.equals(tag)) {
                 fragment = new DemosFragment();
-            }
-            else if (FRAG_TAG_RACE.equals(tag)) {
-            }
-            else if (FRAG_TAG_GRADING.equals(tag)) {
             }
             else if (FRAG_TAG_MY.equals(tag)) {
                 fragment = new MyFragment();
