@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
  * <p>
  * Created by：wangjian on 2017/12/22 14:40
  */
-public class LoginFragment extends BaseFragment  {
+public class LoginFragment extends BaseFragment {
 
 
     public LoginFragment() {
@@ -93,7 +93,9 @@ public class LoginFragment extends BaseFragment  {
         if (view == mBtnLogin) {
             checkInput();
         } else if (view == mTvRegisterNow) {
+            Router.goRegister(getActivity());
         } else if (view == mTvForgetPwd) {
+            Router.goForgetPwd(getActivity());
         }
     }
 
@@ -122,7 +124,7 @@ public class LoginFragment extends BaseFragment  {
     public void onSuccess(String authorization) {
         hideProgress();
         // 保存用户登录信息，并更新请求header
-       //  GradingUtils.login(authorization);
+        //  GradingUtils.login(authorization);
         // 跳转到主界面
         Router.goMain(getActivity());
     }

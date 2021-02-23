@@ -50,6 +50,12 @@ public class LoginActivity extends BaseActivity {
                 case LOGIN_PAGE:
                     showLoginFragment(false);
                     break;
+                case FORGET_PWD_PAGE:
+                    showForgetPwdFragment(false);
+                    break;
+                case REGISTER_PAGE:
+                    showRegisterFragment(false);
+                    break;
             }
         } else {
             showLoginFragment(true);
@@ -72,6 +78,20 @@ public class LoginActivity extends BaseActivity {
      */
     public void showLoginFragment(boolean addToBack) {
         showChildFragment(new LoginFragment(), addToBack);
+    }
+
+    /**
+     * 显示忘记密码界面
+     */
+    public void showForgetPwdFragment(boolean addToBack) {
+        showChildFragment(new ForgetPwdFragment(), addToBack);
+    }
+
+    /**
+     * 显示注册界面
+     */
+    public void showRegisterFragment(boolean addToBack) {
+        showChildFragment(new RegisterFragment(), addToBack);
     }
 
     private void showChildFragment(Fragment fragment, boolean addToBack) {

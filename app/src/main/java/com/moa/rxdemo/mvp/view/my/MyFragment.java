@@ -5,9 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,19 +37,11 @@ public class MyFragment extends BaseFragment implements UserInfoContract.IUserIn
 
     private static final int REQ_PERMISSION_CALL_CODE = 1;
 
-    private ScrollView mContainer;
-    private RelativeLayout mLlHeader;
     private ImageView mIvHeadIcon;
     private TextView mTvUsername;
     private TextView mTvTel;
     private View mLlEdit;
     private Button mBtnLogin;
-    private RelativeLayout mLlShopCar;
-    private TextView mTvShopCarNum;
-    private LinearLayout mLlReadyPay;
-    private LinearLayout mLlRunning;
-    private LinearLayout mLlFinish;
-    private ImageView mIvInvite;
     private GridView mGvFunctions;
 
     private UserInfoPresenter mUserInfoPresenter;
@@ -69,23 +58,15 @@ public class MyFragment extends BaseFragment implements UserInfoContract.IUserIn
     protected void initView(@NotNull View view) {
         super.initView(view);
         setTitle(R.string.my);
-        mContainer = findViewById(R.id.container);
-        mLlHeader = (RelativeLayout) findViewById(R.id.ll_header);
         mIvHeadIcon = (ImageView) findViewById(R.id.iv_head_icon);
         mTvUsername = (TextView) findViewById(R.id.tv_username);
         mTvTel = (TextView) findViewById(R.id.tv_tel);
         mLlEdit = findViewById(R.id.ll_edit);
 
         mBtnLogin = (Button) findViewById(R.id.btn_login);
-        mLlShopCar = (RelativeLayout) findViewById(R.id.ll_shop_car);
-        mTvShopCarNum = (TextView) findViewById(R.id.tv_shop_car_num);
-        mLlReadyPay = (LinearLayout) findViewById(R.id.ll_ready_pay);
-        mLlRunning = (LinearLayout) findViewById(R.id.ll_running);
-        mLlFinish = (LinearLayout) findViewById(R.id.ll_finish);
-        mIvInvite = (ImageView) findViewById(R.id.iv_invite);
         mGvFunctions = findViewById(R.id.gv_functions);
 
-        setOnClickListener(mLlEdit, mBtnLogin, mLlShopCar, mLlReadyPay, mLlRunning, mLlFinish, mIvInvite);
+        setOnClickListener(mLlEdit, mBtnLogin);
 
         mGvFunctions.setOnItemClickListener((parent, view1, position, id) -> {
             FunctionItem item = (FunctionItem) parent.getAdapter().getItem(position);
@@ -156,16 +137,6 @@ public class MyFragment extends BaseFragment implements UserInfoContract.IUserIn
             Router.goSetting(getActivity());
         } else if (v == mBtnLogin) {
             Router.goLogin(getActivity());
-        } else if (v == mLlShopCar) {
-
-        } else if (v == mLlReadyPay) {
-
-        } else if (v == mLlRunning) {
-
-        } else if (v == mLlFinish) {
-
-        } else if (v == mIvInvite) {
-
         }
     }
 
@@ -174,33 +145,15 @@ public class MyFragment extends BaseFragment implements UserInfoContract.IUserIn
         mGvFunctions.setAdapter(myFunctionsAdapter);
 
         List<Integer> colors = new ArrayList<Integer>();
-        colors.add(R.color.color_F4F5FE);
-        colors.add(R.color.color_F3FFFB);
-        colors.add(R.color.color_FEFAF4);
-        colors.add(R.color.color_FFF3F7);
-        colors.add(R.color.color_F6F2FF);
-        colors.add(R.color.color_F0F7FF);
         colors.add(R.color.color_FCFBF2);
         colors.add(R.color.color_F4FAFF);
 
         List<Integer> titles = new ArrayList<Integer>();
-        titles.add(R.string.my_info);
-        titles.add(R.string.my_enter_center);
-        titles.add(R.string.my_report_list);
-        titles.add(R.string.my_address);
-        titles.add(R.string.my_collection);
         titles.add(R.string.my_connect_us);
-        titles.add(R.string.my_send_advice);
         titles.add(R.string.my_about_us);
 
         List<Integer> logos = new ArrayList<Integer>();
-        logos.add(R.mipmap.my_info);
-        logos.add(R.mipmap.my_enter_center);
-        logos.add(R.mipmap.my_report_list);
-        logos.add(R.mipmap.my_address);
-        logos.add(R.mipmap.my_collection);
         logos.add(R.mipmap.my_connect_us);
-        logos.add(R.mipmap.my_send_advice);
         logos.add(R.mipmap.my_about_us);
 
         ArrayList<FunctionItem> list = new ArrayList<>();

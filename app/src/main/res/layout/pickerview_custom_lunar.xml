@@ -21,7 +21,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="17dp"
             android:padding="8dp"
-            android:src="@mipmap/pickerview_to_down" />
+            android:src="@mipmap/arrow_down" />
 
         <CheckBox
             android:id="@+id/cb_lunar"

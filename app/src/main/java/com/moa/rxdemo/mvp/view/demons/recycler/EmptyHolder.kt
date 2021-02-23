@@ -61,7 +61,7 @@ class EmptyHolder(view: View) : RecyclerHolder<EmptyData>(view) {
             }
             -1 -> {
                 mTvLoadingStatus.text = data.msg
-                mIvTopImg.setImageResource(R.mipmap.no_login_icon)
+                mIvTopImg.setImageResource(R.mipmap.no_report_data)
             }
             1002 -> {
                 mTvLoadingStatus.text = data.msg
