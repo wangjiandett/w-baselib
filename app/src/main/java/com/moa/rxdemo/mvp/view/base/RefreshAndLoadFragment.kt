@@ -124,7 +124,7 @@ abstract class RefreshAndLoadFragment<T> : BaseListFragment<T>(), OnRefreshListe
      * 数据为空时显示的提示文本
      */
     open fun onDataEmpty() {
-        setEmptyTipTxt(getString(R.string.no_more_data))
+        setEmptyTipTxt(getString(R.string.loading_no_more_data))
         setDataEmptyImg(R.mipmap.no_report_data)
     }
 

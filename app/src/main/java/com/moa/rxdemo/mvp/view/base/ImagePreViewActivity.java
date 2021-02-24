@@ -41,7 +41,7 @@ public class ImagePreViewActivity extends BaseActivity {
         // 通过文件路径设置
         // imageView.setImage(String path);
 
-        getRightTv().setText(getString(R.string.save_result_img));
+        getRightTv().setText(getString(R.string.save_img));
         getRightTv().setOnClickListener(v -> {
             if(mFile != null){
                 File exFile = new File(Files.getExternalStorageFileDir(), mFile.getName());
@@ -51,7 +51,7 @@ public class ImagePreViewActivity extends BaseActivity {
                     FileUtil.saveImageToGallery(this, exFile);
                     // ShareUtils.shareFile2QQ(activity, file)
 
-                    Runtimes.postToMainThread(() -> showToast(R.string.save_result_img_success));
+                    Runtimes.postToMainThread(() -> showToast(R.string.save_img_success_tip));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

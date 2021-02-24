@@ -1,37 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--<color name="color_7A67FB">#7A67FB</color>-->
-    <!--<color name="color_888888">#888888</color>-->
-    <!--<color name="color_B2B2B2">#B2B2B2</color>-->
-
-
-    <color name="livepusher_accent">#0ACCAC</color>
-    <color name="livepusher_red">#FF3333</color>
-    <color name="livepusher_white">#FFFFFF</color>
-    <color name="livepusher_black">#000000</color>
-    <color name="livepusher_hlf_transparent">#30000000</color>
-    <color name="livepusher_btn_line">#BBBBBB</color>
-    <color name="livepusher_gray_white">#EEEEEE</color>
-    <color name="livepusher_green">#33DA33</color>
-    <color name="livepusher_dark_gray">#3F000000</color>
-    <color name="livepusher_light_gray">#EDEDEF</color>
-    <color name="livepusher_gray">#666666</color>
-    <color name="livepusher_audio_gray">#CC000000</color>
-    <color name="livepusher_text_gray">#FF6B82A8</color>
-    <color name="livepusher_blue">#FF0062E3</color>
-
-
-    <color name="liveplayer_color_accent">#0accac</color>
-    <color name="liveplayer_transparent">#00000000</color>
-    <color name="liveplayer_red">#FF3333</color>
-    <color name="liveplayer_white">#FFFFFF</color>
-    <color name="liveplayer_black">#000000</color>
-    <color name="liveplayer_gray">#787878</color>
-    <color name="liveplayer_background_gray">#EBEBEB</color>
-    <color name="liveplayer_color_primary_dark">#21a3f5</color>
-    <color name="liveplayer_hint_color">#777777</color>
-    <color name="liveplayer_dim_gray">#696969</color>
-    <color name="liveplayer_text_gray">#FF6B82A8</color>
 
     <color name="grading_toast_bg">#b3000000</color>
     <color name="grading_title_bar_bg">#80000000</color>
@@ -44,26 +12,4 @@
     <color name="grading_divider">#EEEEEE</color>
     <color name="grading_enter_title_bg">#F1F1F3</color>
 
-    <color name="color_F4F5FE">#F4F5FE</color>
-    <color name="color_F3FFFB">#F3FFFB</color>
-    <color name="color_FEFAF4">#FEFAF4</color>
-    <color name="color_FFF3F7">#FFF3F7</color>
-    <color name="color_F6F2FF">#F6F2FF</color>
-    <color name="color_F0F7FF">#F0F7FF</color>
-    <color name="color_FCFBF2">#FCFBF2</color>
-    <color name="color_F4FAFF">#F4FAFF</color>
-    <color name="color_DBDBDB">#DBDBDB</color>
-    <color name="color_F5F4F7">#F5F4F7</color>
-    <color name="color_111111">#111111</color>
-    <color name="color_FFF4F6">#FFF4F6</color>
-    <color name="color_707070">#707070</color>
-    <color name="color_FF8F78">#FF8F78</color>
-    <color name="color_F2F2F2">#F2F2F2</color>
-    <color name="color_CFCFCF">#CFCFCF</color>
-    <color name="color_FFFAFB">#FFFAFB</color>
-    <color name="color_F7F6FF">#F7F6FF</color>
-    <color name="color_FFF0F3">#FFF0F3</color>
-    <color name="color_9FA2B4">#9FA2B4</color>
-    <color name="color_F5F4F9">#F5F4F9</color>
-    <color name="color_F6F6F6">#F6F6F6</color>
 </resources>

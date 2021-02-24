@@ -145,8 +145,8 @@ public class MyFragment extends BaseFragment implements UserInfoContract.IUserIn
         mGvFunctions.setAdapter(myFunctionsAdapter);
 
         List<Integer> colors = new ArrayList<Integer>();
-        colors.add(R.color.color_FCFBF2);
-        colors.add(R.color.color_F4FAFF);
+        colors.add(R.color.grading_finish_btn_disable_bg);
+        colors.add(R.color.grading_title_bar_tip_left);
 
         List<Integer> titles = new ArrayList<Integer>();
         titles.add(R.string.my_connect_us);

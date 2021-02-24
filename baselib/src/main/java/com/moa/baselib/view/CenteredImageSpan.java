@@ -1,10 +1,11 @@
-package com.moa.rxdemo.weiget;
+package com.moa.baselib.view;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
 import android.text.style.ImageSpan;
+
+import androidx.annotation.NonNull;
 
 /**
  * TextView中显示居中的ImageSpan

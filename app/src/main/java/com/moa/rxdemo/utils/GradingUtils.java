@@ -10,7 +10,7 @@ import com.moa.baselib.utils.AppUtils;
 import com.moa.rxdemo.mvp.bean.UserInfoResponse;
 import com.moa.rxdemo.mvp.bean.event.LoginEvent;
 import com.moa.rxdemo.net.ApiCreator;
-import com.moa.rxdemo.weiget.CenteredImageSpan;
+import com.moa.baselib.view.CenteredImageSpan;
 
 import org.greenrobot.eventbus.EventBus;
 

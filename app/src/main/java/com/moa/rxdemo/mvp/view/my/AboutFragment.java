@@ -34,7 +34,7 @@ public class AboutFragment extends BaseFragment {
     @Override
     protected void initHeader() {
         super.initHeader();
-        setTitle(R.string.about_us);
+        setTitle(R.string.about_us_title);
     }
 
     @Override

@@ -57,7 +57,7 @@ class EmptyHolder(view: View) : RecyclerHolder<EmptyData>(view) {
                 mIvTopImg.setImageResource(R.mipmap.network_error)
             }
             Status.FINISH -> {
-                mTvLoadingStatus.setText(R.string.no_more_data)
+                mTvLoadingStatus.setText(R.string.loading_no_more_data)
             }
             -1 -> {
                 mTvLoadingStatus.text = data.msg

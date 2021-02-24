@@ -64,7 +64,7 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:visibility="gone"
-                app:cardBackgroundColor="@color/color_F7F6FF"
+                app:cardBackgroundColor="@color/grading_enter_title_bg"
                 app:cardCornerRadius="13dp"
                 app:cardElevation="0dp">
 

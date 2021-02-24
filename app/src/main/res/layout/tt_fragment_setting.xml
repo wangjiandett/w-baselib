@@ -4,7 +4,6 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_F2F2F2"
     android:divider="@drawable/tt_list_divider"
     android:orientation="vertical"
     android:showDividers="middle">

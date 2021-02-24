@@ -1,12 +1,13 @@
-package com.moa.rxdemo.weiget;
+package com.moa.baselib.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
-import androidx.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.AdapterViewFlipper;
+
+import androidx.annotation.RequiresApi;
 
 /**
  * 重写onTouchEvent返回值，防止无法监听item click事件
